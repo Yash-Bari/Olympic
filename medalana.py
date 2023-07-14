@@ -2,7 +2,7 @@ import pandas as pd
 import streamlit as st
 
 # Read the CSV file into a Pandas DataFrame
-data = pd.read_csv(r"C:\Users\Yash\OneDrive\Desktop\Hackthon\csv\medals.csv")
+data = pd.read_csv("medals.csv")
 
 # Set the page title and favicon
 st.set_page_config(page_title='Medal Analysis', page_icon=':trophy:')
