@@ -25,10 +25,10 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # Read the medal CSV file into a Pandas DataFrame
-medal_data = pd.read_csv(r"C:\Users\Yash\OneDrive\Desktop\Hackthon\csv\medals.csv")
+medal_data = pd.read_csv("medals.csv")
 
 # Read the game CSV file into a Pandas DataFrame
-game_data = pd.read_csv(r"C:\Users\Yash\OneDrive\Desktop\Hackthon\csv\athlete_events.csv")
+game_data = pd.read_csv("athlete_events.csv")
 
 # Title
 st.title("Olympic Games Analysis")
