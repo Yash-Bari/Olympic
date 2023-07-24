@@ -13,7 +13,7 @@ def generate_audio(text, lang='en'):
     return audio_file
 
 icon_path = 'icon.ico'  # Change this to 'icon.png' if using a PNG icon
-st.set_page_config(page_title='Sports History and Voice Translator', page_icon=icon_path)
+st.set_page_config(page_title='Sports', page_icon=icon_path)
 
 
 # Function to split text into chunks with complete sentences
