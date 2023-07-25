@@ -1,11 +1,12 @@
 import pandas as pd
 import streamlit as st
 
+# Set Streamlit wide mode to display all data
+st.set_option('deprecation.showPyplotGlobalUse', False)
+st.set_page_config(layout="wide")
+
 # Read the CSV file into a Pandas DataFrame
 data = pd.read_csv("medals.csv")
-
-# Set the page title and favicon
-st.set_page_config(page_title='Medal Analysis', page_icon=':trophy:')
 
 # Add custom CSS styles
 st.markdown("""
@@ -28,20 +29,38 @@ st.markdown("""
             text-align: center;
             margin-bottom: 10px;
         }
+        .sidebar-instructions {
+            margin-bottom: 20px;
+            padding: 10px;
+            background-color: #f0f0f0;
+            border-radius: 5px;
+        }
     </style>
 """, unsafe_allow_html=True)
 
+# Page header
+st.title("Olympic Medal Analysis")
+st.subheader("Explore medal data for different countries and athletes")
+
+# Sidebar instructions
+st.sidebar.title("Instructions")
+st.sidebar.markdown("""
+    1. Use the dropdown to select a country.
+    2. The app will display the medal tally for the selected country.
+    3. Explore country-wise and athlete-wise medal analysis.
+    4. Check the overall medal distribution.
+""")
+
 # Sidebar for filtering options
-st.sidebar.header("Choose Options")
-selected_country = st.sidebar.selectbox("Select Country", data["country_name"].unique())
+st.sidebar.header("Filter Options")
+selected_country = st.sidebar.selectbox("Select Country", data["country_name"].unique(), index=0)
 
 # Filter the data based on the selected country
 filtered_data = data[data["country_name"] == selected_country]
 
 # Medal Tally
-medal_tally = filtered_data["medal_type"].value_counts()
 st.header("Medal Tally")
-st.bar_chart(medal_tally)
+st.bar_chart(filtered_data["medal_type"].value_counts())
 
 # Country-wise analysis
 st.header("Country-wise Analysis")
@@ -60,4 +79,4 @@ st.bar_chart(overall_medal_tally)
 
 # Footer
 st.markdown("<hr>", unsafe_allow_html=True)
-st.markdown("<p style='text-align: center; color: gray;'>Made with :heart: by Your Name</p>", unsafe_allow_html=True)
+st.markdown("<p style='text-align: center; color: gray;'>Data Analysis</p>", unsafe_allow_html=True)
