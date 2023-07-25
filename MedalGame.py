@@ -4,7 +4,7 @@ import altair as alt
 from collections import Counter
 
 # Set the page title and favicon
-st.set_page_config(page_title='Olympic Analysis', page_icon=':trophy:')
+st.set_page_config(page_title='Olympic Analysis', page_icon=':trophy:', layout="wide")
 
 # Add custom CSS styles
 st.markdown("""
@@ -21,6 +21,21 @@ st.markdown("""
             text-align: center;
             margin-bottom: 10px;
         }
+        .header {
+            font-size: 36px;
+            text-align: center;
+            margin-bottom: 24px;
+        }
+        .description {
+            font-size: 18px;
+            text-align: center;
+            margin-bottom: 12px;
+        }
+        .section-separator {
+            margin-top: 36px;
+            margin-bottom: 12px;
+            border-top: 2px solid #ccc;
+        }
     </style>
 """, unsafe_allow_html=True)
 
@@ -30,8 +45,9 @@ medal_data = pd.read_csv("medals.csv")
 # Read the game CSV file into a Pandas DataFrame
 game_data = pd.read_csv("athlete_events.csv")
 
-# Title
+# Header
 st.title("Olympic Games Analysis")
+st.markdown("<p class='description'>Explore Olympic Games data with this interactive application.</p>", unsafe_allow_html=True)
 
 # Sidebar for choosing the analysis option
 analysis_option = st.sidebar.radio("Select Analysis Option", ("Medal Analysis", "Game Analysis"))
@@ -52,31 +68,40 @@ if analysis_option == "Medal Analysis":
 
     # Render the bar chart with a custom CSS class
     st.markdown("<div class='chart-container'>", unsafe_allow_html=True)
-    st.bar_chart(medal_tally)
+    st.bar_chart(medal_tally, use_container_width=True)
     st.markdown("</div>", unsafe_allow_html=True)
+
+    # Section separator
+    st.markdown("<div class='section-separator'></div>", unsafe_allow_html=True)
 
     # Country-wise analysis
     st.header("Country-wise Analysis")
     country_group = filtered_medal_data.groupby("country_name")
     country_medal_tally = country_group["medal_type"].value_counts().unstack().fillna(0)
-    st.bar_chart(country_medal_tally)
+    st.bar_chart(country_medal_tally, use_container_width=True)
 
     st.subheader("Country-wise Medal Tally (Table)")
     st.dataframe(country_medal_tally)
 
-    # Athlete-wise analysis
+    # Section separator
+    st.markdown("<div class='section-separator'></div>", unsafe_allow_html=True)
+
+    # Athlete-wise analysis (removed athlete ID and image data)
     st.header("Athlete-wise Analysis")
     athlete_group = filtered_medal_data.groupby("athlete_full_name")
     athlete_medal_tally = athlete_group["medal_type"].value_counts().unstack().fillna(0)
-    st.bar_chart(athlete_medal_tally)
+    st.bar_chart(athlete_medal_tally, use_container_width=True)
 
     st.subheader("Athlete-wise Medal Tally (Table)")
     st.dataframe(athlete_medal_tally)
 
+    # Section separator
+    st.markdown("<div class='section-separator'></div>", unsafe_allow_html=True)
+
     # Overall analysis
     st.header("Overall Analysis")
     overall_medal_tally = medal_data["country_name"].value_counts()
-    st.bar_chart(overall_medal_tally)
+    st.bar_chart(overall_medal_tally, use_container_width=True)
 
     st.subheader("Overall Medal Tally (Table)")
     st.dataframe(overall_medal_tally)
@@ -96,9 +121,9 @@ else:
     # Render the bar chart with a custom CSS class
     st.markdown("<div class='chart-container'>", unsafe_allow_html=True)
 
-    # Display the data
+    # Display the data (removed athlete ID and image data)
     st.write(f"Number of athletes in {sport} ({gender}): {len(filtered_game_data)}")
-    st.dataframe(filtered_game_data)
+    st.dataframe(filtered_game_data.drop(columns=['ID', 'image']))
 
     # Display the chart
     chart = alt.Chart(filtered_game_data).mark_bar().encode(
@@ -107,7 +132,7 @@ else:
         color=alt.Color("NOC", legend=None),
         tooltip=["NOC", "count()"]
     ).properties(
-        width=600,
+        width=700,  # Adjust chart width for wide mode
         height=400
     ).interactive()
 
@@ -117,4 +142,4 @@ else:
 
 # Footer
 st.markdown("<hr>", unsafe_allow_html=True)
-st.markdown("<p style='text-align: center; color: gray;'>Made with :heart: by Yash Bari</p>", unsafe_allow_html=True)
+st.markdown("<p style='text-align: center; color: gray;'>Data Analysis</p>", unsafe_allow_html=True)
