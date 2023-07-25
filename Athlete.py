@@ -26,10 +26,6 @@ def main():
         initial_sidebar_state="expanded",
     )
 
-    # Add Olympic logo at the header
-    olympic_logo_url = 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Olympic_rings_without_rims.svg/100px-Olympic_rings_without_rims.svg.png'
-    st.image(olympic_logo_url, width=50, output_format='PNG')
-
     # Add a smaller header and separation
     header_container = st.container()
     with header_container:
