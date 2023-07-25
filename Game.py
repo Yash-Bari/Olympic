@@ -63,3 +63,6 @@ if show_table:
 st.sidebar.markdown('---')
 st.markdown('---')
 
+# Footer
+st.markdown("<hr>", unsafe_allow_html=True)
+st.markdown("<p style='text-align: center; color: gray;'>Data Analysis</p>", unsafe_allow_html=True)
