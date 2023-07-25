@@ -12,9 +12,6 @@ def generate_audio(text, lang='en'):
     tts.save(audio_file)
     return audio_file
 
-icon_path = 'icon.ico'  # Change this to 'icon.png' if using a PNG icon
-st.set_page_config(page_title='Sports', page_icon=icon_path)
-
 
 # Function to split text into chunks with complete sentences
 def split_text(text, chunk_size=500):
@@ -36,7 +33,12 @@ def split_text(text, chunk_size=500):
 url = 'https://raw.githubusercontent.com/Yash-Bari/dataset/main/Sports.csv'
 df = pd.read_csv(url)
 
-st.title('Sports')
+# Set page title and icon
+st.set_page_config(page_title='Sports Information App', page_icon=':sports_medal:')
+
+# Page header with separation lines
+st.title('Sports Information App')
+st.write('---')
 
 # Select a sport from the dropdown
 selected_sport = st.selectbox('Select a sport', df['Sport'].unique())
@@ -55,6 +57,7 @@ with col2:
     st.write(sport_data['History'])
 
 # Voice Translator
+st.write('---')  # Separation line
 st.subheader('Voice Translator')
 text_to_translate = sport_data['History']
 
