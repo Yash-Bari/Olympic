@@ -1,7 +1,6 @@
 import espeakng
 import streamlit.components.v1 as components
 import subprocess
-import threading
 import wikipediaapi
 from deep_translator import GoogleTranslator
 import streamlit as st
@@ -34,9 +33,9 @@ def translate_text(text, target_language):
     return translation
 
 def speak_with_check(engine, text):
-    t = threading.Thread(target=engine.play, args=(text,))
-    t.start()
-
+    engine.say(text)
+    engine.wait()
+    
 def get_language_name(code):
     language_mapping = {
         "en": "English",
