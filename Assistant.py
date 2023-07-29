@@ -130,9 +130,8 @@ def virtual_assistant():
 
     # Create a button to trigger the virtual assistant
     if st.button("Translate and Assist"):
-    # Start a conversation
-    espeak("Let me think what I can tell...", language='en')
-    show_animation()
+        espeak("Let me think what I can tell...", language='en')
+        show_animation()
 
         # Get information from Wikipedia
         wiki_wiki = wikipediaapi.Wikipedia('Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3')
