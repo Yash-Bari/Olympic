@@ -1,4 +1,4 @@
-import subprocess
+import espeakng
 import wikipediaapi
 from deep_translator import GoogleTranslator
 import streamlit as st
@@ -59,12 +59,11 @@ def show_animation():
         time.sleep(0.02)
         progress_bar.progress(i + 1)
     st.success("Done!")
+    
 def text_to_speech_espeak(text, language='en'):
-    # Build the command to call espeak with the desired language and text
-    command = ['espeak', '-v', language, text]
-
-    # Use subprocess to run the command and convert text to speech
-    subprocess.run(command)
+    tts = espeakng.ESpeakNG()
+    tts.set_voice(language)
+    tts.say(text)
 
 def virtual_assistant():
     st.title("Virtual Assistant")
@@ -83,7 +82,7 @@ def virtual_assistant():
     greetings = ["Hello! I'm your virtual assistant. How can I assist you?", "Hi there! How can I help you today?",
                  "Hey! What can I do for you?", "Hi! I'm here to help. What do you need assistance with?"]
     greeting = random.choice(greetings)
-    engine(greeting, language='en')
+    speak_with_check(greeting, language='en')
 
     # Get user input
     user_input = st.text_input("You:", "")
