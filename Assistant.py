@@ -1,4 +1,6 @@
 import espeakng
+import streamlit.components.v1 as components
+import subprocess
 import wikipediaapi
 from deep_translator import GoogleTranslator
 import streamlit as st
@@ -64,8 +66,24 @@ def text_to_speech_espeak(text, language='en'):
     tts = espeakng.ESpeakNG()
     tts.set_voice(language)
     tts.say(text)
+    
+def espeak(text, language):
+    command = ['espeak', '-v', language, text]
+    subprocess.run(command)
+component_code = """
+import streamlit as st
+from espeak_component import espeak
 
+text_input = st.text_input("Enter text:")
+language = st.selectbox("Select language:", ["en", "hi", "es", "fr", "de", "it", "ja", "ko", "pt", "zh", "ru"])
+
+if st.button("Speak"):
+    espeak(text_input, language)
+"""
+
+components.register_component("espeak", code=component_code)
 def virtual_assistant():
+    espeak = st.components.declare_component("espeak")
     st.title("Virtual Assistant")
     st.markdown('---')
 
@@ -112,10 +130,9 @@ def virtual_assistant():
 
     # Create a button to trigger the virtual assistant
     if st.button("Translate and Assist"):
-        # Start a conversation
-        engine.say("Let me think what I can tell...")
-        engine.runAndWait()
-        show_animation()
+    # Start a conversation
+    espeak("Let me think what I can tell...", language='en')
+    show_animation()
 
         # Get information from Wikipedia
         wiki_wiki = wikipediaapi.Wikipedia('Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3')
