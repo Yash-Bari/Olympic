@@ -8,5 +8,5 @@ wikipedia-api
 deep_translator
 streamlit
 gtts
-py-espeak-ng
+espeak-ng
 
