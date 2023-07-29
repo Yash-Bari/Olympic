@@ -1,4 +1,5 @@
 import pyttsx3
+import espeakng
 import wikipediaapi
 from deep_translator import GoogleTranslator
 import streamlit as st
