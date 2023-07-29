@@ -1,4 +1,4 @@
-from . import espeak
+from pyttsx3 import espeak
 import wikipediaapi
 from deep_translator import GoogleTranslator
 import streamlit as st
