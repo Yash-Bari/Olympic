@@ -59,6 +59,12 @@ def show_animation():
         time.sleep(0.02)
         progress_bar.progress(i + 1)
     st.success("Done!")
+def text_to_speech_espeak(text, language='en'):
+    # Build the command to call espeak with the desired language and text
+    command = ['espeak', '-v', language, text]
+
+    # Use subprocess to run the command and convert text to speech
+    subprocess.run(command)
 
 def virtual_assistant():
     st.title("Virtual Assistant")
@@ -70,15 +76,14 @@ def virtual_assistant():
     st.sidebar.write("2. Choose the language you want to translate the information to from the below.")
     st.sidebar.write("3. Click on the 'Translate and Assist' button to get assistance.")
 
-    # Initialize pyttsx3 engine
-    engine = espeak.init()
+       # Initialize espeak engine
+    engine = text_to_speech_espeak
 
     # Greet the user
     greetings = ["Hello! I'm your virtual assistant. How can I assist you?", "Hi there! How can I help you today?",
                  "Hey! What can I do for you?", "Hi! I'm here to help. What do you need assistance with?"]
     greeting = random.choice(greetings)
-    speak_with_check(engine, greeting)
-
+    engine(greeting, language='en')
 
     # Get user input
     user_input = st.text_input("You:", "")
