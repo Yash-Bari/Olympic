@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 df = pd.read_csv(r"Team_medal.csv")
 
 st.header('Olympic Medals Dashboard')
-st.write('This app allows you to explore Olympic medals data for different sports and years.')
+st.subheader('This app allows you to explore Olympic medals data for different sports and years.')
 
 selected_sport = st.sidebar.selectbox('Select a sport', df['Sport'].unique(), help='Select a sport to view the medal distribution.')
 selected_year = st.sidebar.selectbox('Select a year', df['Year'].unique(), help='Select a year to view the medal distribution.')
