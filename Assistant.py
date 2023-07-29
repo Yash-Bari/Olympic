@@ -33,10 +33,10 @@ def translate_text(text, target_language):
     return translation
 
 def speak_with_check(engine, text):
-    # Check if the engine is already busy (running)
-    if not engine.isBusy():
-        engine.say(text)
-        engine.runAndWait()
+    while engine.is_playing():
+        time.sleep(0.1)
+    engine.say(text)
+    engine.wait()
 
 def get_language_name(code):
     language_mapping = {
