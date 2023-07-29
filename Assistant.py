@@ -4,7 +4,6 @@ from deep_translator import GoogleTranslator
 import streamlit as st
 from gtts import gTTS
 import os
-from . import _espeak, toUtf8, fromUtf8
 import random
 import time
 
