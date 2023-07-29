@@ -30,7 +30,7 @@ df = pd.read_csv(url)
 st.set_page_config(page_title='Sports Information App', page_icon=':sports_medal:')
 
 st.title('Sports Information App')
-st.markdown("Translate sports information in any language.", unsafe_allow_html=True)
+st.subheader("Translate sports information in any language.", unsafe_allow_html=True)
 st.write('---')
 
 selected_sport = st.selectbox('Select a sport', df['Sport'].unique())
