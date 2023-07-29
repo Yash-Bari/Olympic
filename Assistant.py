@@ -62,10 +62,9 @@ def show_animation():
         progress_bar.progress(i + 1)
     st.success("Done!")
     
-def text_to_speech_espeak(text, language='en'):
-    tts = espeakng.ESpeakNG()
-    tts.set_voice(language)
-    tts.say(text)
+def text_to_speech_espeak(text, language):
+    command = ["espeak-ng", text, "--stdout", f"-v{language}"]
+    return subprocess.run(command, capture_output=True, text=True).stdout
     
 def espeak(text, language):
     command = ['espeak', '-v', language, text]
