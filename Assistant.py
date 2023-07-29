@@ -33,10 +33,8 @@ def translate_text(text, target_language):
     return translation
 
 def speak_with_check(engine, text):
-    while engine.is_playing():
-        time.sleep(0.1)
-    engine.say(text)
-    engine.wait()
+    t = threading.Thread(target=engine.play, args=(text,))
+    t.start()
 
 def get_language_name(code):
     language_mapping = {
