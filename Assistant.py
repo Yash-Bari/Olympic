@@ -94,13 +94,13 @@ def virtual_assistant():
     st.sidebar.write("3. Click on the 'Translate and Assist' button to get assistance.")
 
        # Initialize espeak engine
-    engine = text_to_speech_espeak
+    engine = espeakng.ESpeakNG()
 
     # Greet the user
     greetings = ["Hello! I'm your virtual assistant. How can I assist you?", "Hi there! How can I help you today?",
                  "Hey! What can I do for you?", "Hi! I'm here to help. What do you need assistance with?"]
     greeting = random.choice(greetings)
-    speak_with_check(greeting, language='en')
+    speak_with_check(engine, greeting)
 
     # Get user input
     user_input = st.text_input("You:", "")
