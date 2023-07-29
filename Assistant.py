@@ -1,4 +1,14 @@
-import espeakng
+import pyttsx3
+import wikipediaapi
+from deep_translator import GoogleTranslator
+import streamlit as st
+from gtts import gTTS
+import os
+import random
+import time
+
+# Rest of the code remains the same as before...
+
 import streamlit.components.v1 as components
 import subprocess
 import wikipediaapi
