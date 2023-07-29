@@ -71,7 +71,7 @@ def virtual_assistant():
     st.sidebar.write("3. Click on the 'Translate and Assist' button to get assistance.")
 
     # Initialize pyttsx3 engine
-    engine = pyttsx3.init()
+    engine = pyttsx3.init(driverName='espeak')
 
     # Greet the user
     greetings = ["Hello! I'm your virtual assistant. How can I assist you?", "Hi there! How can I help you today?",
