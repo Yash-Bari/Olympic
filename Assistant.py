@@ -79,8 +79,6 @@ language = st.selectbox("Select language:", ["en", "hi", "mr", "es", "fr", "de",
 if st.button("Speak"):
     espeak(text_input, language)
 """
-
-
 def virtual_assistant():
     espeak = st.components.declare_component("espeak")
     st.title("Virtual Assistant")
