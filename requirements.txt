@@ -9,4 +9,4 @@ deep_translator
 streamlit
 gtts
 py-espeak-ng
-python==3.9.6
+
