@@ -8,3 +8,4 @@ wikipedia-api
 deep_translator
 streamlit
 gtts
+espeak
