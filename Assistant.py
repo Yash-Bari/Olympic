@@ -74,13 +74,13 @@ import streamlit as st
 from espeak_component import espeak
 
 text_input = st.text_input("Enter text:")
-language = st.selectbox("Select language:", ["en", "hi", "es", "fr", "de", "it", "ja", "ko", "pt", "zh", "ru"])
+language = st.selectbox("Select language:", ["en", "hi", "mr", "es", "fr", "de", "it", "ja", "ko", "pt", "zh", "ru"])
 
 if st.button("Speak"):
     espeak(text_input, language)
 """
 
-components.register_component("espeak", code=component_code)
+
 def virtual_assistant():
     espeak = st.components.declare_component("espeak")
     st.title("Virtual Assistant")
