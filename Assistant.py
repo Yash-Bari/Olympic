@@ -1,4 +1,4 @@
-from pyttsx3 import espeak
+import import subprocess
 import wikipediaapi
 from deep_translator import GoogleTranslator
 import streamlit as st
