@@ -42,7 +42,7 @@ medal_data = pd.read_csv("medals.csv")
 game_data = pd.read_csv("athlete_events.csv")
 
 st.title("Olympic Games Analysis")
-st.subheader("Explore Olympic Games data with this interactive application.)
+st.subheader("Explore Olympic Games data with this interactive application.")
 
 analysis_option = st.sidebar.radio("Select Analysis Option", ("Medal Analysis", "Game Analysis"))
 
