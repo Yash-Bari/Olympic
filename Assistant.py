@@ -1,6 +1,7 @@
 import espeakng
 import streamlit.components.v1 as components
 import subprocess
+import threading
 import wikipediaapi
 from deep_translator import GoogleTranslator
 import streamlit as st
