@@ -4,7 +4,7 @@ altair
 gtts
 translate
 pyttsx3
-wikipediaapi
-deeptranslator
+wikipedia-api
+deep_translator
 streamlit
 gtts
