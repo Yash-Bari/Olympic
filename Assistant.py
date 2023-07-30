@@ -54,6 +54,17 @@ def show_animation():
     st.success("Done!")
 
 def virtual_assistant():
+    st.markdown(
+        '''
+        <div style="background-color: #031221; color: #ffffff; padding: 5px; text-align: center;">
+            <a href="https://yash-bari.github.io/gfgolympia/" rel="noopener noreferrer">
+                <img src="https://th.bing.com/th/id/OIP.W8FzzgXIKTGjKmHFYkdYnAAAAA?w=176&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7" alt="MyOlympia Logo" style="width: 100px; height: 100px; border-radius: 20%;">
+            </a>
+            <h1 style="font-size: 36px; margin-top: 10px;">MyOlympia</h1>
+        </div>
+        ''',
+        unsafe_allow_html=True
+    )
     st.title("Virtual Assistant")
     st.markdown('---')
 
