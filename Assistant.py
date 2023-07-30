@@ -52,19 +52,8 @@ def show_animation():
         time.sleep(0.02)
         progress_bar.progress(i + 1)
     st.success("Done!")
-def show_logo_with_name():
-    st.write('<style>div.Widget.row-widget.stRadio > div{flex-direction:row;}</style>', unsafe_allow_html=True)
-    st.markdown(
-        f"""
-        <div style="background-color: #031221; color: #ffffff; padding: 5px; text-align: center;">
-            <img src="{st.secrets['logo_url']}" alt="MyOlympia Logo" style="width: 100px; height: 100px; border-radius: 20%;">
-            <h1 style="font-size: 36px; margin-top: 10px;">MyOlympia Virtual Assistant</h1>
-        </div>
-        """,
-        unsafe_allow_html=True
-    )
 def virtual_assistant():
-    show_logo_with_name()
+    st.image("https://th.bing.com/th/id/OIP.W8FzzgXIKTGjKmHFYkdYnAAAAA?w=176&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7", caption="MyOlympia Logo", width=100)
     st.title("Virtual Assistant")
     st.markdown('---')
 
