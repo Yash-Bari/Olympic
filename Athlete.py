@@ -16,7 +16,6 @@ def display_details(row):
     st.markdown(f"**Medal:** {row['Medal']}")
 
 def main():
-    st.image("https://th.bing.com/th/id/OIP.W8FzzgXIKTGjKmHFYkdYnAAAAA?w=176&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7", caption="MyOlympia", width=100)
     st.markdown(
         "# Olympic Athlete Information\n\n"
         "Explore details of Olympic athletes and their achievements!"
@@ -27,7 +26,7 @@ def main():
         page_icon=":runner:",
         initial_sidebar_state="expanded",
     )
-
+     st.image("https://th.bing.com/th/id/OIP.W8FzzgXIKTGjKmHFYkdYnAAAAA?w=176&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7", caption="MyOlympia", width=100)
     header_container = st.container()
     with header_container:
         st.markdown("<h1 style='text-align: center; font-size: 50px;'>Olympic Athlete Information</h1>", unsafe_allow_html=True)
