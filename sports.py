@@ -28,7 +28,7 @@ url = 'https://raw.githubusercontent.com/Yash-Bari/dataset/main/Sports.csv'
 df = pd.read_csv(url)
 
 st.set_page_config(page_title='Sports Information App', page_icon=':sports_medal:')
-
+st.image("https://th.bing.com/th/id/OIP.W8FzzgXIKTGjKmHFYkdYnAAAAA?w=176&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7", caption="MyOlympia", width=100)
 st.title('Sports Information App')
 st.subheader("Translate sports information in any language.")
 st.write('---')
