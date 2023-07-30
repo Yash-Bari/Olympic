@@ -16,15 +16,15 @@ def display_details(row):
     st.markdown(f"**Medal:** {row['Medal']}")
 
 def main():
-    st.markdown(
-        "# Olympic Athlete Information\n\n"
-        "Explore details of Olympic athletes and their achievements!")
-    st.set_page_config(
+   st.set_page_config(
         layout="wide",
         page_title="Olympic Athlete Information",
         page_icon=":runner:",
         initial_sidebar_state="expanded",
     )
+    st.markdown(
+        "# Olympic Athlete Information\n\n"
+        "Explore details of Olympic athletes and their achievements!")
     header_container = st.container()
     with header_container:
         st.markdown("<h1 style='text-align: center; font-size: 50px;'>Olympic Athlete Information</h1>", unsafe_allow_html=True)
