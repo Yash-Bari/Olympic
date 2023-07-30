@@ -53,7 +53,7 @@ def show_animation():
         progress_bar.progress(i + 1)
     st.success("Done!")
 def virtual_assistant():
-    st.markdown("[![MyOlympia](https://th.bing.com/th/id/OIP.W8FzzgXIKTGjKmHFYkdYnAAAAA?w=150&h=150&c=7&r=0&o=5&dpr=1.3&pid=1.7)](https://yash-bari.github.io/gfgolympia/)", unsafe_allow_html=True)
+    st.image("https://th.bing.com/th/id/OIP.W8FzzgXIKTGjKmHFYkdYnAAAAA?w=176&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7", caption="MyOlympia", width=100)
     st.title("InfoAssist")
     st.markdown('---')
 
