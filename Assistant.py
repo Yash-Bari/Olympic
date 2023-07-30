@@ -53,8 +53,9 @@ def show_animation():
         progress_bar.progress(i + 1)
     st.success("Done!")
 def virtual_assistant():
-    st.image("https://th.bing.com/th/id/OIP.W8FzzgXIKTGjKmHFYkdYnAAAAA?w=176&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7", caption="MyOlympia", width=100)
-    st.title("Virtual Assistant")
+    st.image("https://th.bing.com/th/id/OIP.W8FzzgXIKTGjKmHFYkdYnAAAAA?w=176&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7", width=100)
+    st.header("MyOlympia")
+    st.title("InfoAssist")
     st.markdown('---')
 
     st.sidebar.header("Instructions:")
