@@ -3,7 +3,6 @@ pandas
 altair
 gtts
 translate
-pyttsx3
 wikipedia-api
 deep_translator
 streamlit
