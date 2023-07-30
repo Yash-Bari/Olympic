@@ -23,7 +23,7 @@ def display_details(row):
     st.markdown(f"**Medal:** {row['Medal']}")
 
 def main():
-   header_container = st.container()
+    header_container = st.container()
     with header_container:
         st.markdown("<h1 style='text-align: center; font-size: 50px;'>Olympic Athlete Information</h1>", unsafe_allow_html=True)
         st.markdown("---")
