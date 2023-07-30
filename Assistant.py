@@ -1,17 +1,3 @@
-import pyttsx3
-import espeakng
-import wikipediaapi
-from deep_translator import GoogleTranslator
-import streamlit as st
-from gtts import gTTS
-import os
-import random
-import time
-
-# Rest of the code remains the same as before...
-
-import streamlit.components.v1 as components
-import subprocess
 import wikipediaapi
 from deep_translator import GoogleTranslator
 import streamlit as st
@@ -43,10 +29,6 @@ def translate_text(text, target_language):
     translation = translator.translate(text)
     return translation
 
-def speak_with_check(engine, text):
-    engine.say(text)
-    engine.wait()
-    
 def get_language_name(code):
     language_mapping = {
         "en": "English",
@@ -70,24 +52,7 @@ def show_animation():
         time.sleep(0.02)
         progress_bar.progress(i + 1)
     st.success("Done!")
-    
-def text_to_speech_espeak(text, language):
-    command = ["espeak-ng", text, "--stdout", f"-v{language}"]
-    return subprocess.run(command, capture_output=True, text=True).stdout
-    
-def espeak(text, language):
-    command = ['espeak', '-v', language, text]
-    subprocess.run(command)
-component_code = """
-import streamlit as st
-from espeak_component import espeak
 
-text_input = st.text_input("Enter text:")
-language = st.selectbox("Select language:", ["en", "hi", "mr", "es", "fr", "de", "it", "ja", "ko", "pt", "zh", "ru"])
-
-if st.button("Speak"):
-    espeak(text_input, language)
-"""
 def virtual_assistant():
     st.title("Virtual Assistant")
     st.markdown('---')
@@ -97,15 +62,6 @@ def virtual_assistant():
     st.sidebar.write("**Example Query: Olympic History, Football, Swimming, Paraolympic and etc**")
     st.sidebar.write("2. Choose the language you want to translate the information to from the below.")
     st.sidebar.write("3. Click on the 'Translate and Assist' button to get assistance.")
-
-       # Initialize espeak engine
-    engine = espeakng.ESpeakNG()
-
-    # Greet the user
-    greetings = ["Hello! I'm your virtual assistant. How can I assist you?", "Hi there! How can I help you today?",
-                 "Hey! What can I do for you?", "Hi! I'm here to help. What do you need assistance with?"]
-    greeting = random.choice(greetings)
-    speak_with_check(engine, greeting)
 
     # Get user input
     user_input = st.text_input("You:", "")
@@ -135,7 +91,6 @@ def virtual_assistant():
 
     # Create a button to trigger the virtual assistant
     if st.button("Translate and Assist"):
-        espeak("Let me think what I can tell...", language='en')
         show_animation()
 
         # Get information from Wikipedia
