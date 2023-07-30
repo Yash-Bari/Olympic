@@ -18,8 +18,7 @@ def display_details(row):
 def main():
     st.markdown(
         "# Olympic Athlete Information\n\n"
-        "Explore details of Olympic athletes and their achievements!"
-    )
+        "Explore details of Olympic athletes and their achievements!")
     st.set_page_config(
         layout="wide",
         page_title="Olympic Athlete Information",
