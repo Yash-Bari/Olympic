@@ -40,7 +40,7 @@ st.markdown("""
 medal_data = pd.read_csv("medals.csv")
 
 game_data = pd.read_csv("athlete_events.csv")
-
+st.image("https://th.bing.com/th/id/OIP.W8FzzgXIKTGjKmHFYkdYnAAAAA?w=176&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7", caption="MyOlympia", width=100)
 st.title("Olympic Games Analysis")
 st.subheader("Explore Olympic Games data with this interactive application.")
 
