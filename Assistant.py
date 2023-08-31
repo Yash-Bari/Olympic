@@ -83,13 +83,13 @@ def virtual_assistant():
         "zh": "Chinese",
         "ru": "Russian"
     }
-    st.sidebar.markdown("Choose language:")
-    target_language_name = st.sidebar.selectbox("", list(language_mapping.values()))
+       st.sidebar.markdown("Choose language:")
+       target_language_name = st.sidebar.selectbox("", list(language_mapping.values()))
 
     # Get the target language code based on the selected language name
-    target_language_code = next(key for key, value in language_mapping.items() if value == target_language_name)
-    wiki_wiki = wikipediaapi.Wikipedia('Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3')
-    wiki_page = wiki_wiki.page(user_input_clean)
+        target_language_code = next(key for key, value in language_mapping.items() if value == target_language_name)
+        wiki_wiki = wikipediaapi.Wikipedia('Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3')
+        wiki_page = wiki_wiki.page(user_input_clean)
 
         if wiki_page.exists() and wiki_page.text:
             info = wiki_page.text
