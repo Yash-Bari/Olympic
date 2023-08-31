@@ -58,7 +58,7 @@ def virtual_assistant():
 
     st.sidebar.header("Instructions:")
     st.sidebar.write("1. Type your query in the 'You:' text box.")
-    st.sidebar.write("**Example Query: Olympic History, Football, Swimming, Paraolympic and etc**")
+    st.sidebar.write("**Example Query: ML, Football, India, ISRO, chandrayaan 3 and etc**")
     st.sidebar.write("2. Choose the language you want to translate the information to from the below.")
     st.sidebar.write("3. Click on the 'Translate and Assist' button to get assistance.")
 
