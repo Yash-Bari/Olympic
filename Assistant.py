@@ -1,4 +1,3 @@
-import pyttsx3
 import wikipediaapi
 from deep_translator import GoogleTranslator
 import streamlit as st
@@ -29,12 +28,6 @@ def translate_text(text, target_language):
     translator = GoogleTranslator(source='auto', target=target_language)
     translation = translator.translate(text)
     return translation
-
-def speak_with_check(engine, text):
-    # Check if the engine is already busy (running)
-    if not engine.isBusy():
-        engine.say(text)
-        engine.runAndWait()
 
 def get_language_name(code):
     language_mapping = {
@@ -70,16 +63,6 @@ def virtual_assistant():
     st.sidebar.write("2. Choose the language you want to translate the information to from the below.")
     st.sidebar.write("3. Click on the 'Translate and Assist' button to get assistance.")
 
-    # Initialize pyttsx3 engine
-    engine = pyttsx3.init()
-
-    # Greet the user
-    greetings = ["Hello! I'm your virtual assistant. How can I assist you?", "Hi there! How can I help you today?",
-                 "Hey! What can I do for you?", "Hi! I'm here to help. What do you need assistance with?"]
-    greeting = random.choice(greetings)
-    speak_with_check(engine, greeting)
-
-
     # Get user input
     user_input = st.text_input("You:", "")
 
@@ -105,13 +88,6 @@ def virtual_assistant():
 
     # Get the target language code based on the selected language name
     target_language_code = next(key for key, value in language_mapping.items() if value == target_language_name)
-
-    # Create a button to trigger the virtual assistant
-    if st.button("Translate and Assist"):
-        # Start a conversation
-        engine.say("Let me think what I can tell...")
-        engine.runAndWait()
-        show_animation()
 
         # Get information from Wikipedia
         wiki_wiki = wikipediaapi.Wikipedia('Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3')
